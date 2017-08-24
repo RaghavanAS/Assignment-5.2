@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>JS to find if entered character is a vowel or a contestant</title>
+        <!-- HTML5 shim for IE8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+      <script src=“https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js”></script>
+    <![endif]-->
+<!-- javascript starts here -->
+<script type="text/javascript">
+//Naming my function
+function myFunc(){
+var inp=document.getElementById("inputChar").value;
+var res=typeof inp;
+//validation to check the following
+//   1.check if entered value is not a number
+//   2. check if no more than 1 character is entered
+//   3. call the function if 1 and 2 are successful
+if (isNaN(inp))
+{
+	if (inp.length == 1) {
+document.getElementById("output").innerHTML="the entered string is a  "+validateInp(inp);
+}
+else{
+document.getElementById("output").innerHTML="Only Single character String is allowed ";	
+}
+}
+else
+{
+document.getElementById("output").innerHTML="Only a String is allowed ";
+}
+}
+//internal function
+function validateInp(myText)
+{
+var convText;
+// converting the text to upper case if entered as lower case and validating if entered character is vowel or consonant
+if(myText==myText.toLowerCase())
+{
+convText= myText.toUpperCase();
+}
+else
+{
+convText=myText;
+}
+if(convText == 'A' || convText == 'E' || convText== 'I' || convText== 'O' || convText== 'U')
+{
+return "Vowel";
+}
+else
+{
+return "Consonant ";
+}
+}
+
+</script>
+<!--script ends here -->
+</head>
+<body>
+<!-- Header -->
+<header>
+<h1> Validation  </h1>
+</header>
+<!-- main section -->
+<main id="mainSection">
+<section id="subSection">
+<!-- using a text box to pass the input to the script -->
+<label> <b> Please enter a character to know if it is a vowel or consonant </b></label> <input type="text" id="inputChar" name="userinput" pattern="[A-Za-z]{1}" required title="Only charcters are allowed">
+<input type=submit value="submit" onclick="myFunc()">
+<p id="output"></p>
+</section>
+</main>
+</body>
+</html>
